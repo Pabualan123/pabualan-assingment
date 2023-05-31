@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assignment</title>
+</head>
+<body>
+  <script>
+    var style = document.createElement("style");
+    style.textContent = `
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+
+      .container {
+        text-align: center;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        margin-top: 0;
+      }
+
+      input {
+        margin-bottom: 10px;
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+
+      button {
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        background-color: #4caf50;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      p {
+        margin-top: 10px;
+      }
+    `;
+
+    document.head.appendChild(style);
+
+    var container = document.createElement("div");
+    container.className = "container";
+    document.body.appendChild(container);
+
+    var heading = document.createElement("h1");
+    heading.textContent = "Script rajud ni";
+    container.appendChild(heading);
+
+    var startInput = document.createElement("input");
+    startInput.type = "number";
+    startInput.placeholder = "Enter the starting number";
+    container.appendChild(startInput);
+
+    var endInput = document.createElement("input");
+    endInput.type = "number";
+    endInput.placeholder = "Enter the ending number";
+    container.appendChild(endInput);
+
+    var button = document.createElement("button");
+    button.textContent = "Calculate Sum";
+    button.addEventListener("click", calculateSum);
+    container.appendChild(button);
+
+    var result = document.createElement("p");
+    container.appendChild(result);
+
+    function calculateSum() {
+      var startingNumber = parseInt(startInput.value);
+      var endingNumber = parseInt(endInput.value);
+      var sum = 0;
+
+      if (startingNumber && endingNumber && startingNumber <= endingNumber) {
+        for (var i = startingNumber; i <= endingNumber; i++) {
+          sum += i;
+        }
+
+        result.textContent = "The sum of all numbers in the range is: " + sum;
+      } else {
+        result.textContent = "Invalid input! Please enter valid numbers.";
+      }
+    }
+  </script>
+</body>
+</html>
